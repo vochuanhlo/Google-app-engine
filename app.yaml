@@ -1,0 +1,23 @@
+
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /css
+  static_dir: website/css
+  
+- url: /img
+  static_dir: website/img
+  
+- url: /vendor
+  static_dir: website/vendor
+
+- url: .*
+  script: website/main.php
+
+env_variables:
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/smsystem-190402:us-central1:testdb;dbname=studentdb
+  MYSQL_USER: root
+  MYSQL_PASSWORD: ''
+
